@@ -52,7 +52,10 @@ It's possible generate again the API documentation executing
 **mvn package -Praml2html -DskipTests**
 
 The RAML 1.0 definition is in calculator-webapp/src/main/raml/
+
 It's requested to have npm installed and raml2html module in local machine
+
+https://www.npmjs.com/package/raml2html
 
 
 ## 1.6 Test
