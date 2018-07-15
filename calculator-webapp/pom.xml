@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>calculator</artifactId>
+    <groupId>it.longo.calculator</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>calculator-webapp</artifactId>
+  <name>calculator-webapp</name>
+  <packaging>war</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+<build>
+    <resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+		</resource>
+		<resource>
+			<directory>${config.for.profile}</directory>
+			<filtering>true</filtering>
+		</resource> 
+	</resources>
+    
+	<plugins>
+		<plugin>
+        	<groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+		        <layout>WAR</layout>
+		        <addResources>true</addResources>
+		   	</configuration>
+		    <executions>
+		    	<execution>
+		          <goals>
+		            <goal>repackage</goal>
+		          </goals>
+		 		</execution>
+	      </executions>
+    	</plugin>
+	</plugins>
+  </build>
+  
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<config.for.profile>src/main/config/dev</config.for.profile>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>raml2html</id>
+			<build>
+				<plugins>
+					<plugin>
+		                <groupId>org.codehaus.mojo</groupId>
+		                <artifactId>exec-maven-plugin</artifactId>
+		                <version>1.4.0</version>
+		                <executions>
+		                	<execution>
+		                        <id>calculator-standard</id>
+		                        <phase>package</phase>
+		                        <goals>
+		                            <goal>exec</goal>
+		                        </goals>
+		                        <configuration>
+		                            <executable>raml2html</executable>
+		                            <commandlineArgs>-i src/main/raml/calculator-standard.raml -o src/main/webapp/statics/standard.html</commandlineArgs>
+		                        </configuration>
+		                    </execution>
+		                    <execution>
+		                        <id>calculator-scientific</id>
+		                        <phase>package</phase>
+		                        <goals>
+		                            <goal>exec</goal>
+		                        </goals>
+		                        <configuration>
+		                            <executable>raml2html</executable>
+		                            <commandlineArgs>-i src/main/raml/calculator-scientific.raml -o src/main/webapp/statics/scientific.html</commandlineArgs>
+		                        </configuration>
+		                    </execution> 
+		                </executions>
+		             </plugin>
+	             </plugins>
+             </build>
+             <activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>other</id> <!-- TBD -->
+			<properties>
+				<config.for.profile>src/main/config/other</config.for.profile>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
+  <dependencies>
+  	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    	<dependency>
+	    <groupId>com.fasterxml.jackson.module</groupId>
+	    <artifactId>jackson-module-parameter-names</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.datatype</groupId>
+	    <artifactId>jackson-datatype-jdk8</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.datatype</groupId>
+	    <artifactId>jackson-datatype-jsr310</artifactId>
+	</dependency>
+  	<dependency>
+  		<groupId>it.longo.calculator</groupId>
+  		<artifactId>calculator-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+
+</project>

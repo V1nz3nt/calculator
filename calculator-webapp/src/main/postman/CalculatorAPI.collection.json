@@ -1,0 +1,271 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CalculatorAPI",
+		"_postman_id": "19de34e4-bcd5-2e3b-70a7-83680dab759c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "standard",
+			"description": "Request to Standard Calculator",
+			"item": [
+				{
+					"name": "ADD",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/standard/add?x=1&y=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"standard",
+								"add"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "y",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SUBSTRACT",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/standard/substract?x=1&y=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"standard",
+								"substract"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "y",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "MULTIPLY",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/standard/multiply?x=2&y=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"standard",
+								"multiply"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "y",
+									"value": "5",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DIVIDE",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/standard/divide?x=1&y=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"standard",
+								"divide"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "y",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scientific",
+			"description": "Request to Scientific Calculator",
+			"item": [
+				{
+					"name": "SQUARE",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/scientific/square?number=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"scientific",
+								"square"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "3",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "EXPONENTIAL",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/scientific/exp?number=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"scientific",
+								"exp"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "IS_PRIME",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8080/calculator-webapp/scientific/isPrime?number=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator-webapp",
+								"scientific",
+								"isPrime"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "3",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

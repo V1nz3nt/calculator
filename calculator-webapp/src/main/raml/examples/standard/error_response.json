@@ -1,0 +1,6 @@
+{
+    "errors": {
+        "x": "must be a valid number",
+        "y": "must not be null"
+    }
+}

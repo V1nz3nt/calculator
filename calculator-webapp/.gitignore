@@ -25,6 +25,7 @@ hs_err_pid*
 #eclipse
 .classpath
 .project
+.tern-project
 .settings/
 
 #maven

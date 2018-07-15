@@ -1,0 +1,86 @@
+#%RAML 1.0
+title: Scientific Calculator
+version: v1_0
+baseUri: /scientific
+mediaType: application/json
+protocols: [ HTTPS ]
+types:
+  CalculatorResponse: !include schemas/common/calculator-response.json
+  CalculatorIsPrimeResponse: !include schemas/scientific/calculator-is-prime-response.json
+  ErrorResponse: !include schemas/common/error-response.json
+  
+/square:
+  displayName: Square
+  get:
+    description: Interface to calculate square of a number
+    queryParameters:
+      number:
+        description: "The number to calculate SQUARE."
+        example: 2
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+          application/json:
+            type: CalculatorResponse
+            example: !include examples/scientific/square_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/scientific/error_response.json
+      500:
+        description: Internal Server Error.         
+/exp:
+  displayName: Exponential
+  get:
+    description: Interface to calculate exponential of a number.
+    queryParameters:
+      number:
+        description: "The number to calculate EXP."
+        example: 2 
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+           application/json:
+             type: CalculatorResponse
+             example: !include examples/scientific/exp_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/scientific/error_response.json
+      500:
+        description: Internal Server Error.
+/isPrime:
+  displayName: isPrime
+  get:
+    description: Interface to verify if a number is prime.
+    queryParameters:
+      number:
+        description: "The number to verify if is prime. If the input would be eg. 2.01, the left part will be considered."
+        example: 3 
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+           application/json:
+             type: CalculatorIsPrimeResponse
+             example: !include examples/scientific/isPrime_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/scientific/error_response.json
+      500:
+        description: Internal Server Error.

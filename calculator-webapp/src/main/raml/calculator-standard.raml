@@ -1,0 +1,130 @@
+#%RAML 1.0
+title: Standard Calculator
+version: v1_0
+baseUri: /standard
+mediaType: application/json
+protocols: [ HTTPS ]
+types:
+  CalculatorResponse: !include schemas/common/calculator-response.json
+  ErrorResponse: !include schemas/common/error-response.json
+  
+/add:
+  displayName: Add
+  get:
+    description: Interface to sum 2 numbers.
+    queryParameters:
+      x:
+        description: "The first operand."
+        example: 2
+        required: true
+        type: number
+      y:
+        description: "The second operand."
+        example: 3
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+          application/json:
+            type: CalculatorResponse
+            example: !include examples/standard/add_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/standard/error_response.json
+      500:
+        description: Internal Server Error.
+/substract:
+  displayName: Substract
+  get:
+    description: Interface to substract 2 numbers.
+    queryParameters:
+      x:
+        description: "The first operand."
+        example: 2
+        required: true
+        type: number
+      y:
+        description: "The second operand."
+        example: 3
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+           application/json:
+             type: CalculatorResponse
+             example: !include examples/standard/substract_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/standard/error_response.json
+      500:
+        description: Internal Server Error.
+/multiply:
+  displayName: Multiply
+  get:
+    description: Interface to multiply 2 numbers.
+    queryParameters:
+      x:
+        description: "The first operand."
+        example: 5
+        required: true
+        type: number
+      y:
+        description: "The second operand."
+        example: 4
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+           application/json:
+             type: CalculatorResponse
+             example: !include examples/standard/multiply_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/standard/error_response.json
+      500:
+        description: Internal Server Error.
+/divide:
+  displayName: Divide
+  get:
+    description: Interface to divide 2 numbers.
+    queryParameters:
+      x:
+        description: "The first operand."
+        example: 1
+        required: true
+        type: number
+      y:
+        description: "The second operand."
+        example: 2
+        required: true
+        type: number
+    responses:
+      200:
+        description: Success. The returned body contains result.
+        body:
+           application/json:
+             type: CalculatorResponse
+             example: !include examples/standard/multiply_response.json
+      400:
+        description: Bad request (validation error).
+        body:
+          application/json:
+            type: ErrorResponse
+            example: !include examples/standard/error_response.json
+      500:
+        description: Internal Server Error.
