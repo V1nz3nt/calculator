@@ -8,7 +8,7 @@ The goal is to implement some Calculator REST API.
 - Maven 	3
 - Npm (raml2Html@latest)
 - IDE like Eclipse/IntelliJ
-
+- Tomcat 8.0.36
 
 ## 1.2 Dependencies
 
